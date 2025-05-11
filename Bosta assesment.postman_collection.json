@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "4702b6d8-3e35-4679-bbf3-5cbbd68cca7e",
+		"name": "Bosta assesment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44826572",
+		"_collection_link": "https://khaledhegazya-9681694.postman.co/workspace/60411eab-6c67-4c6d-8b0e-21f049c944ed/collection/44826572-4702b6d8-3e35-4679-bbf3-5cbbd68cca7e?action=share&source=collection_link&creator=44826572"
+	},
+	"item": [
+		{
+			"name": "New Get the full history of a specific delivery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"CurrentStatus\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-By",
+						"value": "landmark",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "image/gif",
+						"type": "text"
+					},
+					{
+						"key": "tra",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{BaseUrl}}shipments/track/{{trackingNumber}}",
+					"host": [
+						"{{BaseUrl}}shipments"
+					],
+					"path": [
+						"track",
+						"{{trackingNumber}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "https://tracking.bosta.co/",
+			"type": "default"
+		}
+	]
+}
